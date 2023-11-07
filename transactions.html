@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Transactions</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main id="allTransactions" class="transaction-container">
+    <header class="transaction-header">
+        <h1>All Transactions</h1>
+    </header>
+
+    <section class="transaction-list" aria-labelledby="transactionListHeading">
+        <h2 id="transactionListHeading" class="visually-hidden">List of all transactions</h2>
+        <ul id="fullTransactionList" class="list"></ul>
+    </section>
+
+    <aside id="monthlyTotals" class="monthly-totals">
+        <h2>Monthly Totals</h2>
+        <p id="previousMonthTotal">Previous Month: ₹0.00</p>
+        <p id="currentMonthTotal">Current Month: ₹0.00</p>
+    </aside>
+
+    <div class="transaction-actions">
+        <button id="clearAllBtn" type="button" class="button-danger">Clear All Transactions</button>
+        <button type="button" class="button-secondary" onclick="window.location.href='index.html'">Back to Wallet App</button>
+    </div>
+
+    
+</main>
+
+<script src="transactions.js"></script>
+</body>
+</html>

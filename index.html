@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/png">
+    <title>Wallet App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="walletApp">
+    <h1>Wallet App</h1>
+    
+    <div id="balance">
+        <h2>Balance: ₹<span id="balanceAmount">0.00</span></h2>
+    </div>
+    
+    <div id="summary">
+        <div class="summary-item" id="expenses-summary">
+            <h3>Expenses: ₹<span id="expensesAmount">0.00</span></h3>
+        </div>
+        <div class="summary-item" id="income-summary">
+            <h3>Income: ₹<span id="incomeAmount">0.00</span></h3>
+        </div>
+    </div>
+
+    
+
+    <div id="transactions">
+        <h2>Transactions</h2>
+        <button type="button" onclick="window.location.href='transactions.html'">Show All Transactions</button>
+        <ul id="transactionList"></ul>
+    </div>
+
+    <div id="addTransaction">
+        <h2>Add Transaction</h2>
+        <form id="transactionForm">
+            <input type="text" id="description" placeholder="Description" required>
+            <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+            <input type="date" id="transactionDate" placeholder="Date"> <!-- Date input for transaction -->
+            <button type="submit">Add Expense</button>
+            <button type="button" onclick="addIncome()">Add Income</button>
+        </form>
+    </div>
+
+    
+    
+    
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
