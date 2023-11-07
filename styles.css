@@ -6,10 +6,9 @@
     padding: 0;
 }
 
-/* Basic styling */
 body, html {
     font-family: 'Open Sans', sans-serif;
-    background-color: lightcyan;
+    background-color: whitesmoke;
     color: #333;
     line-height: 1.6;
 }
@@ -24,20 +23,22 @@ body, html {
 
 /* Wallet App container */
 #walletApp {
-    max-width: 400px;
-    margin: 40px auto;
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    
 }
-.transaction-container{
-    max-width: 400px;
-    margin: 40px auto;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+
+
+
+
+/* Dynamic container sizing for iPhone screens */
+.container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* Titles and Texts */
@@ -47,7 +48,7 @@ h1 {
     padding: 20px;
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: clamp(1.5rem, 5vw, 2rem); /* Responsive font size */
 }
 
 h2 {
@@ -95,16 +96,12 @@ h2 {
 
 /* Form Elements */
 input, button {
-    width: calc(100% - 40px);
-    padding: 10px;
-    margin: 10px 20px;
+    width: 100%; /* Changed from calc(100% - 40px) to full width for mobile first */
+    padding: 0.625rem; /* 10px equivalent, can be adjusted with clamp if needed */
+    margin: 0.625rem; /* 10px equivalent */
     border: 1px solid #ddd;
     border-radius: 4px;
-}
-
-input:focus, button:focus {
-    outline: none;
-    border-color: #7f7fd5;
+    font-size: clamp(0.8rem, 2.5vw, 1rem); /* Responsive font size */
 }
 
 button {
@@ -112,8 +109,17 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    padding: clamp(0.625rem, 2.5vw, 1rem); /* Responsive padding */
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Responsive font size */
     transition: background-color 0.3s ease;
 }
+
+input:focus, button:focus {
+    outline: none;
+    border-color: #7f7fd5;
+}
+
+
 
 button:hover {
     background-color: #6772e5;
@@ -163,15 +169,7 @@ li .income {
 }
 
 /* Responsive design */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 20px;
-    }
-    #walletApp {
-        width: auto;
-        margin: auto;
-    }
-}
+
 
 /* Monthly Totals Styles */
 #monthlyTotals {
@@ -205,13 +203,35 @@ li .income {
     margin: 0;
 }
 
-/* Chart.js Canvas Styling */
-canvas {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+@media only screen and (min-device-width: 320px) and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-width: 360px) and (-webkit-min-device-pixel-ratio: 3),
+only screen and (min-device-width: 375px) and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-width: 414px) and (-webkit-min-device-pixel-ratio: 3),
+only screen and (min-device-width: 428px) and (-webkit-min-device-pixel-ratio: 3) {
+    .transaction-container,
+    #transactions,
+    .container {
+        width: 100%; /* Use full width */
+        padding: 0; /* Remove padding if necessary */
+    }
+    
+    /* Adjust padding and margins for smaller screens */
+    input, button {
+        width: calc(100% - 20px); /* Reduce the calc value if necessary */
+        padding: 10px;
+        margin: 10px 10px; /* Adjust the margins */
+    }
+
+    #walletApp {
+            width: 100%; /* Use full width */
+            padding: 0; /* Remove padding if necessary */
+        } /* Increase the height as needed to fill the bottom space */
+    }
+
+    /* Adjust font sizes for smaller screens using clamp() */
+    h1, h2, h3, p {
+        font-size: clamp(0.8rem, 5vw, 2rem);
+    }
 
 /* Make sure this CSS is included after the main styles */
 /* This ensures it will override anything necessary */
