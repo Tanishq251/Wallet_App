@@ -1,64 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,500&family=Quicksand:wght@300;400;500&display=swap');
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Basic styling */
 body, html {
     font-family: 'Open Sans', sans-serif;
-    background-color: whitesmoke;
+    background-color: lightcyan;
     color: #333;
     line-height: 1.6;
 }
 
+  
 .text-center {
     text-align: center;
 }
-
 .border-rounded {
     border-radius: 4px;
 }
 
 /* Wallet App container */
 #walletApp {
+    max-width: 400px;
+    margin: 40px auto;
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    
 }
-
-
-
-
-/* Dynamic container sizing for iPhone screens */
-.container {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
+.transaction-container{
+    max-width: 400px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 /* Titles and Texts */
+
+    
+        
+  
 h1 {
     background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4);
     color: #ffffff;
     padding: 20px;
     text-align: center;
     margin-bottom: 20px;
-    font-size: clamp(1.5rem, 5vw, 2rem); /* Responsive font size */
+    font-size: 24px;
 }
 
 h2 {
+
+  
     color: #333;
     padding-left: 20px;
     margin-bottom: 10px;
     font-size: 20px;
     border-bottom: 1px solid #e7e7e7;
 }
-
 /* Balance Display */
 #balance {
     text-align: center;
@@ -68,7 +71,6 @@ h2 {
     background: #e7f5fe;
     color: #333;
 }
-
 /* Summary section styling */
 #summary {
     display: flex;
@@ -76,42 +78,27 @@ h2 {
     padding: 0 20px;
     margin-bottom: 20px;
 }
-
 .summary-item {
     flex: 1;
     text-align: center;
 }
-
 #expenses-summary {
     text-align: left;
 }
-
 #income-summary {
     text-align: right;
 }
-
 .summary-item h3 {
     margin-bottom: 0.5em;
 }
 
 /* Form Elements */
 input, button {
-    width: 100%; /* Changed from calc(100% - 40px) to full width for mobile first */
-    padding: 0.625rem; /* 10px equivalent, can be adjusted with clamp if needed */
-    margin: 0.625rem; /* 10px equivalent */
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin: 10px 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: clamp(0.8rem, 2.5vw, 1rem); /* Responsive font size */
-}
-
-button {
-    background-color: #7f7fd5;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: clamp(0.625rem, 2.5vw, 1rem); /* Responsive padding */
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Responsive font size */
-    transition: background-color 0.3s ease;
 }
 
 input:focus, button:focus {
@@ -119,49 +106,49 @@ input:focus, button:focus {
     border-color: #7f7fd5;
 }
 
-
+button {
+    background-color: #7f7fd5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
 button:hover {
     background-color: #6772e5;
 }
 
+    
+    
 /* Transactions List */
 #transactions {
     max-height: 200px;
     overflow-y: auto;
 }
-
 ul {
     list-style: none;
 }
-
 li {
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
     border-bottom: 1px solid #f7f7f7;
 }
-
 li:nth-child(even) {
     background: #f7f7f7;
 }
-
 li .description {
     color: #333;
 }
-
 li .amount {
     font-weight: bold;
 }
-
 li .expense {
     color: #e74c3c;
 }
-
 li .income {
     color: #2ecc71;
 }
-
 #walletApp::after {
     content: '';
     display: block;
@@ -169,32 +156,37 @@ li .income {
 }
 
 /* Responsive design */
-
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+    #walletApp {
+        width: auto;
+        margin: auto;
+    }
+}
 
 /* Monthly Totals Styles */
 #monthlyTotals {
+  
     background-color: #f2f2f2;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 #monthlyTotals h2 {
     text-align: center;
     color: #333;
     margin-bottom: 16px;
 }
-
 #monthlyTotals > div {
     margin-bottom: 10px;
 }
-
 #monthlyTotals h3 {
     color: #555;
     margin: 10px 0;
 }
-
 #monthlyTotals p {
     background-color: #fff;
     padding: 10px;
@@ -203,35 +195,10 @@ li .income {
     margin: 0;
 }
 
-@media only screen and (min-device-width: 320px) and (-webkit-min-device-pixel-ratio: 2),
-only screen and (min-device-width: 360px) and (-webkit-min-device-pixel-ratio: 3),
-only screen and (min-device-width: 375px) and (-webkit-min-device-pixel-ratio: 2),
-only screen and (min-device-width: 414px) and (-webkit-min-device-pixel-ratio: 3),
-only screen and (min-device-width: 428px) and (-webkit-min-device-pixel-ratio: 3) {
-    .transaction-container,
-    #transactions,
-    .container {
-        width: 100%; /* Use full width */
-        padding: 0; /* Remove padding if necessary */
-    }
-    
-    /* Adjust padding and margins for smaller screens */
-    input, button {
-        width: calc(100% - 20px); /* Reduce the calc value if necessary */
-        padding: 10px;
-        margin: 10px 10px; /* Adjust the margins */
-    }
-
-    #walletApp {
-            width: 100%; /* Use full width */
-            padding: 0; /* Remove padding if necessary */
-        } /* Increase the height as needed to fill the bottom space */
-    }
-
-    /* Adjust font sizes for smaller screens using clamp() */
-    h1, h2, h3, p {
-        font-size: clamp(0.8rem, 5vw, 2rem);
-    }
-
-/* Make sure this CSS is included after the main styles */
-/* This ensures it will override anything necessary */
+/* Chart.js Canvas Styling */
+canvas {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
